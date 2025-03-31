@@ -32,7 +32,7 @@ jobs:
           pip install -r .github/workflows/requirements/build.txt --require-hashes
           python -m build
 
-      - name: Publish to PyPiTest
-        uses: pypa/gh-action-pypi-publish@f8c70e705ffc13c3b4d1221169b84f12a75d6ca8 # v1.8.8
-        with:
+      # - name: Publish to PyPiTest
+      #   uses: pypa/gh-action-pypi-publish@f8c70e705ffc13c3b4d1221169b84f12a75d6ca8 # v1.8.8
+      #   with:
           repository-url: https://test.pypi.org/legacy/
