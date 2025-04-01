@@ -1,0 +1,52 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of
+# Python versions
+# For more information see:
+# https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Quality CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.10"]
+
+    steps:
+      - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@48e4ac706204bab735867521ba54b3276c883d00
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          pip install -r .github/workflows/requirements/testing.txt --require-hashes
+          pip install -r .github/workflows/requirements/runtime.txt --require-hashes
+          pip install -e .
+
+      - name: Lint with flake8
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          flake8 . --count --statistics --show-source \
+            --select=E9,F63,F7,F82
+
+          # exit-zero treats all errors as warnings.
+          flake8 . --count --statistics --exit-zero \
+            --max-complexity=10 \
+            --max-line-length=88
+
+      - name: Test with pytest
+        run: |
+          python -m pytest

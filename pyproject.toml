@@ -1,6 +1,6 @@
 [project]
 name = "cronk"
-version = "0.0.1"
+version = "0.0.2"
 description = "A crontab-json translator"
 readme = "README.md"
 requires-python = ">=3.7"
@@ -32,7 +32,7 @@ classifiers = [  # Optional
 
 dependencies = [
   "loguru==0.6.0",
-  "babel==2.9.0"
+  "babel==2.9.1",
 ]
 
 [project.urls]  # Optional
