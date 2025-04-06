@@ -6,4 +6,4 @@ COPY . $SRC/cronk
 WORKDIR cronk
 COPY .clusterfuzzlite/build.sh .clusterfuzzlite/*.dict $SRC/
 
-RUN pip3 install hypothesis -r .clusterfuzzlite/requirements/docker.txt --require-hashes
+RUN pip3 install git+https://github.com/HypothesisWorks/hypothesis.git@705bb26c0dead01ce119dab37e977b7aedb26d1c
