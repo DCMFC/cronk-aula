@@ -5,7 +5,7 @@ from cronk.json_routine import Json, Routine
 
 
 def json_to_cron(json: Dict) -> List[str]:
-    logger.debug(f"Converting json file to cron format")
+    logger.debug(f"Converting json file to cron format {json}")
     if not isinstance(json, dict):
         raise ValueError("schema.json")
 
@@ -20,6 +20,7 @@ def json_to_cron(json: Dict) -> List[str]:
     output.extend(_routine_to_cron(js.routines))
     output.extend(js.outro)
 
+    logger.debug(f"OUTPUT {output}")
     return output
 
 
