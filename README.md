@@ -1,5 +1,6 @@
 [![CodeQL](https://github.com/ossf/scorecard-action/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/DCMFC/cronk-aula/blob/main/.github/workflows/codeql.yml)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/ossf/scorecard-action/badge)](https://scorecard.dev/viewer/?uri=github.com/DCMFC/cronk-aula)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/10390/badge)](https://www.bestpractices.dev/projects/10390)
 
 # Cronk: a cron-json translator
 
