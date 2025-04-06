@@ -58,7 +58,13 @@ def cron_to_json(text: str) -> Json:
     0 0 0 * * echo Hello World
     ```
     """
-    logger.debug(f"Converting cron file to json")
+    logger.debug(f"Converting cron file to json {text}")
+
+    if not isinstance(text, str):
+        raise TypeError("Must be str type")
+
+    if not text:
+        raise ValueError("Invalid schema.json")
 
     lines = text.splitlines()
 

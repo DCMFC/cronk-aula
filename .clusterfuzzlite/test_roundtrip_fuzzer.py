@@ -30,7 +30,7 @@ def test_json_to_cron_to_json_roundtrip(json: dict) -> None:
         txt = dumps(json, default=lambda o: o.__dict__, indent=4)
 
     try:
-        cron_text = "\n".join(json_to_cron(text=txt))
+        cron_text = "\n".join(json_to_cron(json=json))
         output = cron_to_json(text=cron_text)
     except TypeError as err:
         assert str(err) == "Must be str type"
