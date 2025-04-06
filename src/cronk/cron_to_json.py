@@ -60,6 +60,9 @@ def cron_to_json(text: str) -> Json:
     """
     logger.debug(f"Converting cron file to json")
 
+    if not isinstance(text, str):
+        raise TypeError("Must be str type")
+
     lines = text.splitlines()
 
     # identify commands
