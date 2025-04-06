@@ -5,8 +5,8 @@ import atheris
 from hypothesis import given
 from hypothesis import strategies as st
 
-from cronk.cron_to_json import cron_to_json
-from cronk.json_to_cron import json_to_cron
+from src.cronk.cron_to_json import cron_to_json
+from src.cronk.json_to_cron import json_to_cron
 
 JSON_ATOMS = st.one_of(
     st.none(),
