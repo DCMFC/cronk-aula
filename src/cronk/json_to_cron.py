@@ -29,11 +29,14 @@ def _routine_to_cron(routines: List[Routine]) -> List[str]:
 
 
 def _to_Json(json: Dict) -> Json:
-    return Json(
-        intro=json["intro"],
-        routines=[
-            Routine(comments=r["comments"], command=r["command"])
-            for r in json["routines"]
-        ],
-        outro=json["outro"],
-    )
+    try:
+        return Json(
+            intro=json["intro"],
+            routines=[
+                Routine(comments=r["comments"], command=r["command"])
+                for r in json["routines"]
+            ],
+            outro=json["outro"],
+        )
+    except TypeError:
+        raise TypeError("Must be str type")
