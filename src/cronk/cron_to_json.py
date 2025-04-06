@@ -64,7 +64,7 @@ def cron_to_json(text: str) -> Json:
         raise TypeError("Must be str type")
 
     if not text:
-        return Json()
+        return {}
 
     lines = text.splitlines()
 
