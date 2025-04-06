@@ -6,7 +6,7 @@ from cronk.json_routine import Json, Routine
 
 def json_to_cron(json: Dict) -> List[str]:
     logger.debug(f"Converting json file to cron format")
-    if not instance(json, dict):
+    if not isinstance(json, dict):
         raise ValueError("schema.json")
 
     js = _to_Json(json)
