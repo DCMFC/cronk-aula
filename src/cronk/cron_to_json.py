@@ -63,6 +63,9 @@ def cron_to_json(text: str) -> Json:
     if not isinstance(text, str):
         raise TypeError("Must be str type")
 
+    if not text:
+        return Json()
+
     lines = text.splitlines()
 
     # identify commands
