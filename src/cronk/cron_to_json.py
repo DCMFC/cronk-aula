@@ -64,7 +64,7 @@ def cron_to_json(text: str) -> Json:
         raise TypeError("Must be str type")
 
     if not text:
-        return {}
+        raise ValueError("Invalid schema.json")
 
     lines = text.splitlines()
 
