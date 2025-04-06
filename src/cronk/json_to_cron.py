@@ -33,10 +33,10 @@ def _routine_to_cron(routines: List[Routine]) -> List[str]:
 
 def _to_Json(json: Dict) -> Json:
     return Json(
-        intro=json["intro"],
+        intro=json.get("intro"),
         routines=[
-            Routine(comments=r["comments"], command=r["command"])
-            for r in json["routines"]
+            Routine(comments=r.get("comments"), command=r.get("command"))
+            for r in json.get("routines", [])
         ],
-        outro=json["outro"],
+        outro=json.get("outro"),
     )
