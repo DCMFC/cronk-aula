@@ -31,7 +31,7 @@ def test_json_to_cron_to_json_roundtrip(json: dict) -> None:
 
     try:
         cron_text = "\n".join(json_to_cron(json=json))
-        # output = cron_to_json(text=cron_text)
+        output = cron_to_json(text=cron_text)
     except TypeError as err:
         assert str(err) == "Must be str type"
         return
@@ -39,7 +39,7 @@ def test_json_to_cron_to_json_roundtrip(json: dict) -> None:
         assert "schema.json" in str(err)
         return
 
-    # assert json == output.__dict__
+    assert json == output.__dict__
 
 
 if __name__ == "__main__":
