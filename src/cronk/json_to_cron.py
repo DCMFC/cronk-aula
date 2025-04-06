@@ -14,7 +14,7 @@ def json_to_cron(json: Dict) -> List[str]:
     output = js.intro
 
     if not js.routines:
-        return output
+        return output or ""
 
     output.append("")  # blank line between intro and first command
     output.extend(_routine_to_cron(js.routines))
@@ -32,14 +32,11 @@ def _routine_to_cron(routines: List[Routine]) -> List[str]:
 
 
 def _to_Json(json: Dict) -> Json:
-    try:
-        return Json(
-            intro=json["intro"],
-            routines=[
-                Routine(comments=r["comments"], command=r["command"])
-                for r in json["routines"]
-            ],
-            outro=json["outro"],
-        )
-    except TypeError:
-        raise TypeError("Must be str type")
+    return Json(
+        intro=json["intro"],
+        routines=[
+            Routine(comments=r["comments"], command=r["command"])
+            for r in json["routines"]
+        ],
+        outro=json["outro"],
+    )
