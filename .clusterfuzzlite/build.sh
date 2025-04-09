@@ -1,6 +1,6 @@
 # Build and install project (using current CFLAGS, CXXFLAGS). This is required
 # for projects with C extensions so that they're built with the proper flags.
-pip3 install .
+pip3 install -r .clusterfuzzlite/requirements.txt --require-hashes
 
 # Build fuzzers into $OUT. These could be detected in other ways.
 for fuzzer in $(find $SRC -name '*_fuzzer.py'); do
