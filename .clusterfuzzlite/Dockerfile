@@ -6,4 +6,4 @@ COPY . $SRC/cronk
 WORKDIR cronk
 COPY .clusterfuzzlite/build.sh .clusterfuzzlite/*.dict $SRC/
 
-RUN pip3 install hypothesis --upgrade
+RUN pip3 install -r .clusterfuzzlite/requirements.txt --require-hashes
